@@ -1,0 +1,48 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40px;
+  pointer-events: none;
+  padding: 10px;
+  float: left;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #36455c;
+  min-height: 55px;
+  color: white;
+}
+
+.App-link {
+  color: #36455c;
+  padding: 10px;
+  float: left;
+}
+
+.OAuth-Button-div {
+  padding: 10px;
+  float: right;
+}
+
+.OAuth-Button {
+  height: 30px;
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+.NavBar-div {
+  display: flex;
+}
+
+.Body-component-div {
+  display: contents;
+}
