@@ -1,0 +1,22 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t bhattkirtan/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run bhattkirtan/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t bhattkirtan/multi-client ./client
+  - docker build -t bhattkirtan/multi-nginx ./nginx
+  - docker build -t bhattkirtan/multi-server ./server
+  - docker build -t bhattkirtan/multi-worker ./worker
+  # Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Take those images and push them to docker hub
+  - docker push bhattkirtan/multi-client
+  - docker push bhattkirtan/multi-nginx
+  - docker push bhattkirtan/multi-server
+  - docker push bhattkirtan/multi-worker
