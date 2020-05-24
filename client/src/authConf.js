@@ -25,8 +25,8 @@ Amplify.configure({
     oauth: {
       domain: "oms-kb-test.auth.us-east-1.amazoncognito.com",
       scope: ["email", "profile", "openid", "aws.cognito.signin.user.admin"],
-      redirectSignIn: location.href,
-      redirectSignOut: location.href,
+      redirectSignIn: window.location.href,
+      redirectSignOut: window.location.href,
       responseType: "code", // or 'token', note that REFRESH token will only be generated when the responseType is code
     },
   },
